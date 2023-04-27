@@ -5,6 +5,7 @@
 3. [Orika](#Orika)
 4. [ModelMapper](#ModelMapper)
 5. [Dozer](#DozerMapper)
+6. [PoijiMapper](#ExcelMapperUsingPoijiMapper)
 
 [Various Mappers Performance](https://www.baeldung.com/java-performance-mapping-frameworks)
 
@@ -82,6 +83,8 @@
 ### Identifications
 
 ## DozerMapper:
+
+## ExcelMapperUsingPoijiMapper
 
 ### Reference Documentation
 

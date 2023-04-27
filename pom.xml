@@ -9,6 +9,7 @@
   <modules>
     <module>mapstruct-mapper</module>
     <module>dozer-mapper</module>
+    <module>excel-using-poiji-mapper</module>
     <module>j-mapper</module>
     <module>model-mapper</module>
     <module>orika-mapper</module>
@@ -17,7 +18,8 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
+<!--    <version>2.7.2</version>-->
+    <version>2.7.11</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
