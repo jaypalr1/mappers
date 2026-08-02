@@ -1,8 +1,10 @@
 package com.jay.controller;
 
 import com.jay.mapper.SourceToDestinationMapper;
-import com.jay.model.Destination;
-import com.jay.model.Origin;
+import com.jay.model.request.AddressChildSource;
+import com.jay.model.request.AddressSource;
+import com.jay.model.request.Source;
+import com.jay.model.response.TargetResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +20,33 @@ public class MapController {
   @GetMapping("/")
   public void mapFields() {
     var origin = originBuilder();
-    Destination destination = sourceToDestinationMapper.toDestination(origin);
 
-    log.info("{}", destination);
+    TargetResponseDto targetResponseDto = sourceToDestinationMapper.toTargetResponse(origin);
+
+    log.info("{}", targetResponseDto);
   }
 
-  private Origin originBuilder() {
-    return Origin.builder()
+  private Source originBuilder() {
+    return Source.builder()
         .originName("SourceName")
         .originDescription("SourceDescription")
+        .computedField(13)
+        .address(addressBuilder())
+        .build();
+  }
+
+  private AddressSource addressBuilder() {
+    return AddressSource.builder()
+        .street("Street")
+        .city("City")
+        .addressChildSource(addressChildSourceBuilder())
+        .build();
+  }
+
+  private AddressChildSource addressChildSourceBuilder() {
+    return AddressChildSource.builder()
+        .userState("MH")
+        .zipCode("12345")
         .build();
   }
 }

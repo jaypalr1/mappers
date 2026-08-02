@@ -13,9 +13,11 @@
   <artifactId>mapstruct-mapper</artifactId>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <mapstruct.version>1.5.2.Final</mapstruct.version>
+    <maven.compiler.source>25</maven.compiler.source>
+    <maven.compiler.target>25</maven.compiler.target>
+    <!--    <mapstruct.version>1.5.2.Final</mapstruct.version>-->
+    <mapstruct.version>1.6.3</mapstruct.version>
+
   </properties>
 
   <dependencies>
@@ -23,6 +25,15 @@
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct</artifactId>
       <version>${mapstruct.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!--    Required with latest Mapstruct Versions-->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${mapstruct.version}</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 

@@ -19,7 +19,7 @@
 
 * Mapper is the mapping framework that aims to provide an easy-to-use, high-performance mapping
   between Java Beans.
-* Source and destination fields can be different for mapping.
+* Source and targetResponseDto fields can be different for mapping.
 * There are 3 ways to map the fields
     1. API
     2. Annotations
@@ -54,12 +54,12 @@
           @Mapper 
           public interface SourceToDestinationMapper {
             @Mapping(target = "targetField", source = "sourceField")
-            Destination toDestination(Origin origin);
+            Destination toDestination(Origin source);
           }
 * We can mix and match the fields to map i.e., we can specify the field names directly or by using
   object name and then field name
 
-      source = "fieldName" or source = "origin.fieldName"
+      source = "fieldName" or source = "source.fieldName"
 
 * The problem with this interface is that it won't be available for dependency injection. To make it
   available we've specified <b> <i> compilerArgs </i> </b> in plugin. Which makes sure that the
@@ -98,8 +98,8 @@
   automatically converts between types – if they're different.
 * Need to add jar <b> <i> net.sf.dozer:dozer:version </i> </b>.
 * Create a bean of type <b> <i> DozerBeanMapper </i> </b> and use it's <b> <i> map() </i> </b> to
-  convert the fields from source to destination.
-* <b> IMP NOTE: Field names have to be same in source and destination object. </b>
+  convert the fields from source to targetResponseDto.
+* <b> IMP NOTE: Field names have to be same in source and targetResponseDto object. </b>
 
       @Autowired
       DozerBeanMapper dozerBeanMapper;
